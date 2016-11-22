@@ -6,4 +6,4 @@ if [[ -z "$1" ]]; then
   exit 4
 fi
 
-docker build -t cebucodecamp/pizzapy23-mypy:$1 .
+docker build --no-cache -t cebucodecamp/pizzapy23-mypy:$1 .
