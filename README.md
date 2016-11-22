@@ -14,10 +14,10 @@ To play around with the examples in this repository, follow these steps:
 
 1. Clone the repo:
 
-      git clone https://github.com/cebucodecamp/pizzapy23-mypy.git
+  git clone https://github.com/cebucodecamp/pizzapy23-mypy.git
 
 2. Run a demo file:
 
-      $ cd pizzapy23-mypy
-      $ ./mymypy demo1.py
-      demo1.py:3: error: Incompatible types in assignment (expression has type "str", variable has type "int")
+  $ cd pizzapy23-mypy
+  $ ./mymypy demo1.py
+  demo1.py:3: error: Incompatible types in assignment (expression has type "str", variable has type "int")
