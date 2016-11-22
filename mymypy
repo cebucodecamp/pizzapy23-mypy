@@ -1,0 +1,5 @@
+#!/bin/bash
+
+set -e
+
+./runmypy mypy --fast-parser --python-version 3.6 $*

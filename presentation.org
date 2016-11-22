@@ -1,0 +1,28 @@
+
+
+* Ways to Annotate
+
+Comments
+#+begin_src emacs-lisp
+amount = 3  # type: int
+#+end_src
+
+Python 3.6+ (PEP 526)
+
+#+begin_src python
+amount: int = 3
+#+end_src
+
+
+* Installing
+#+begin_src python
+python3 -m pip install -U mypy-lang
+#+end_src
+
+* Reading
+
+Opposition to Python type hints
+https://lwn.net/Articles/643269/
+
+PEP 526: Syntax for Variable Annotations
+https://www.python.org/dev/peps/pep-0526/

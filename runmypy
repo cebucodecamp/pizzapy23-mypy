@@ -1,0 +1,5 @@
+#!/bin/bash
+
+set -e
+
+/usr/bin/docker run -ti --rm -v "$(pwd):/mypy" -w /mypy mypy-testing $*
