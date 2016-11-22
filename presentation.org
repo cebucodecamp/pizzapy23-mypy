@@ -1,3 +1,12 @@
+* MyPy
+*Static type checking for Python*
+
+* Agenda
+
+** Why?
+** How it looks like
+** How to make it wrok: stub-file, Typeshed
+** Type system (and its limits)
 
 
 * Ways to Annotate
@@ -13,16 +22,55 @@ Python 3.6+ (PEP 526)
 amount: int = 3
 #+end_src
 
+* Or don't: Type inference
+
+#+begin_src python
+amount = 3
+#+end_src
+
+
+
+* .pyi Stub files
+
+
+Demo: demo_stubs.py
+
+
+* Typeshed (stdlib)
+
+/usr/local/lib/mypy/typeshed
+
+* Typeshed (3rd party)
+
+#+begin_src python
+$ ./runmypy cat /usr/local/lib/mypy/typeshed/third_party/2.7/requests/api.pyi
+# Stubs for requests.api (Python 3)
+
+from typing import Union
+
+from .models import Response
+
+def request(method: str, url: str, **kwargs) -> Response: ...
+def get(url: Union[str, unicode], **kwargs) -> Response: ...
+#+end_src
+
+* Typeshed (custom)
 
 * Installing
 #+begin_src python
 python3 -m pip install -U mypy-lang
 #+end_src
 
+* Still to be done
+** TODO Opposition to Python type hints
+https://lwn.net/Articles/643269/
+** TODO Complex data structures
+** TODO Type var
+** TODO library Stubs
+** TODO Typeshed
+** TODO Custom stubs
 * Reading
 
-Opposition to Python type hints
-https://lwn.net/Articles/643269/
 
 PEP 526: Syntax for Variable Annotations
 https://www.python.org/dev/peps/pep-0526/
