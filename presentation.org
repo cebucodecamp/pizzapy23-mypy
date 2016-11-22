@@ -1,60 +1,138 @@
 * MyPy
-*Static type checking for Python*
+** Static type checking for Python*
 
 * Agenda
 
 ** Why?
 ** How it looks like
-** How to make it wrok: stub-file, Typeshed
+** How to make it work: stub-file, typesheds
 ** Type system (and its limits)
 
+* Why?
 
-* Ways to Annotate
-
-Comments
-#+begin_src emacs-lisp
-amount = 3  # type: int
-#+end_src
-
-Python 3.6+ (PEP 526)
+- Catch bugs earlier
+  compiling -> testing -> running
 
 #+begin_src python
-amount: int = 3
+requests.get("http://").jso()  # json?
 #+end_src
+
+- Code more expressive (maybe less readable?)
+
+- Mix with dynamic code
+
+* Ways to Annotate: Comments
+
+#+begin_src python
+amount = 3  # type: int
+
+def get_id(name):
+    # type: (string) -> id
+    return len(name)
+#+end_src
+
+* Ways to Annotate: Inline type
+
+#+begin_src python
+amount: int = 3  # Python 3.6 (PEP 526)
+
+def get_id(name: string) -> int:  # Python 3.5 (PEP 484)
+    return len(name)
+#+end_src
+
+
 
 * Or don't: Type inference
 
 #+begin_src python
 amount = 3
+
+def get_id(name: string):
+    return len(name)
 #+end_src
 
 
+* Demos
+
+1-6
 
 * .pyi Stub files
 
 
 Demo: demo_stubs.py
 
+* What about 3rd party code?
 
-* Typeshed (stdlib)
+https://github.com/DefinitelyTyped/DefinitelyTyped
 
-/usr/local/lib/mypy/typeshed
 
-* Typeshed (3rd party)
+* Typeshed: stdlib
+
+Included in MyPy:
+
+https://github.com/python/typeshed
+
+Installed to: /usr/local/lib/mypy/typeshed
+
+* Typeshed: 3rd party
+
+Demo: demo_typeshed_requests.py
+
+* Typeshed: 3rd party (2)
+
+https://github.com/python/typeshed/tree/master/third_party/3
 
 #+begin_src python
 $ ./runmypy cat /usr/local/lib/mypy/typeshed/third_party/2.7/requests/api.pyi
 # Stubs for requests.api (Python 3)
 
-from typing import Union
-
 from .models import Response
 
-def request(method: str, url: str, **kwargs) -> Response: ...
 def get(url: Union[str, unicode], **kwargs) -> Response: ...
+
+# (excerpt only)
 #+end_src
 
-* Typeshed (custom)
+* Typeshed: custom
+
+
+
+#+begin_src emacs-lisp
+./runmypy
+# MYPYPATH=stubs mypy --fast-parser --python-version=3.6 demo_typeshed_requests.py
+#+end_src
+
+
+* Limitations: inference
+
+#+begin_src python
+def get_id(name: string):
+    return len(name)
+
+
+reveal_type(get_id("blub"))
+# -> Any ????
+#+end_src
+
+Demo: limitations_inference.py
+
+* Limitations: Python 3.6
+
+#+begin_src python
+org = "Cebu Code Camp"
+print(f"The name of the org is {org}")
+#     ^-- Syntaxerror :(
+#+end_src
+
+* Limitations: Cast
+
+#+begin_src python
+from typing import cast, List
+
+o = [1] # type: object
+x = cast(List[int], o)  # OK
+y = cast(List[str], o)  # OK (cast performs no actual runtime check)
+#+end_srcpython
 
 * Installing
 #+begin_src python
@@ -65,12 +143,35 @@ python3 -m pip install -U mypy-lang
 ** TODO Opposition to Python type hints
 https://lwn.net/Articles/643269/
 ** TODO Complex data structures
-** TODO Type var
-** TODO library Stubs
-** TODO Typeshed
-** TODO Custom stubs
 * Reading
 
+*MyPy docs* http://mypy.readthedocs.io/
 
-PEP 526: Syntax for Variable Annotations
+*PEP 484: Type Hints*
+https://www.python.org/dev/peps/pep-0484/
+
+*PEP 526: Syntax for Variable Annotations*
 https://www.python.org/dev/peps/pep-0526/
+
+*Static types in Python, oh my(py)!*
+Early adaptor experience from Zulip.
+http://blog.zulip.org/2016/10/13/static-types-in-python-oh-mypy/
+
+* Thanks
+
+* More…
+
+* Overload
+
+Only in stub files.
+
+#+begin_src python
+from typing import overload
+
+class bytes:
+    ...
+    @overload
+    def __getitem__(self, i: int) -> int: ...
+    @overload
+    def __getitem__(self, s: slice) -> bytes: ...
+#+end_src

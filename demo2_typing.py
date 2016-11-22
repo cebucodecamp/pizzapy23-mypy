@@ -1,4 +1,5 @@
 from typing import List
+# ./runmypy cat /usr/local/lib/python3.6/typing.py
 
 
 def count_plus_first(it: List[int]):
