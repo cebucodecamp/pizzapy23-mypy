@@ -18,5 +18,6 @@ To play around with the examples in this repository, follow these steps:
 
 2. Run a demo file:
 
-    pizzapy23-mypy$ ./mymypy demo1.py
+    $ cd pizzapy23-mypy
+    $ ./mymypy demo1.py
     demo1.py:3: error: Incompatible types in assignment (expression has type "str", variable has type "int")
