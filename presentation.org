@@ -139,10 +139,6 @@ y = cast(List[str], o)  # OK (cast performs no actual runtime check)
 python3 -m pip install -U mypy-lang
 #+end_src
 
-* Still to be done
-** TODO Opposition to Python type hints
-https://lwn.net/Articles/643269/
-** TODO Complex data structures
 * Reading
 
 *MyPy docs* http://mypy.readthedocs.io/
@@ -157,6 +153,9 @@ https://www.python.org/dev/peps/pep-0526/
 Early adaptor experience from Zulip.
 http://blog.zulip.org/2016/10/13/static-types-in-python-oh-mypy/
 
+*Opposition to Python type hints*
+Old, but still many useful thoughts and references.
+https://lwn.net/Articles/643269/
 * Thanks
 
 * More…
