@@ -27,7 +27,7 @@ requests.get("http://").jso()  # json?
 amount = 3  # type: int
 
 def get_id(name):
-    # type: (string) -> id
+    # type: (string) -> int
     return len(name)
 #+end_src
 
@@ -129,7 +129,7 @@ print(f"The name of the org is {org}")
 #+begin_src python
 from typing import cast, List
 
-o = [1] # type: object
+o = [1]  # type: object
 x = cast(List[int], o)  # OK
 y = cast(List[str], o)  # OK (cast performs no actual runtime check)
 #+end_srcpython
