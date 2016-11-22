@@ -35,4 +35,4 @@ Happy coding! :)
 
 ## License
 
-All materials here, code and other content, are published under a [CC0 free license](https://creativecommons.org/publicdomain/zero/1.0/).
+All materials here, code and other content, unless otherwise noted, are published under a [CC0 free license](https://creativecommons.org/publicdomain/zero/1.0/).

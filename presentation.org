@@ -132,6 +132,8 @@ from typing import cast, List
 o = [1]  # type: object
 x = cast(List[int], o)  # OK
 y = cast(List[str], o)  # OK (cast performs no actual runtime check)
+
+# source: http://mypy.readthedocs.io/en/latest/casts.html
 #+end_srcpython
 
 * Installing
@@ -160,7 +162,7 @@ https://lwn.net/Articles/643269/
 
 * More…
 
-* Overload
+ * Overload
 
 Only in stub files.
 
@@ -173,4 +175,6 @@ class bytes:
     def __getitem__(self, i: int) -> int: ...
     @overload
     def __getitem__(self, s: slice) -> bytes: ...
+
+# source: http://mypy.readthedocs.io/en/latest/function_overloading.html
 #+end_src
