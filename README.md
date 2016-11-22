@@ -1,8 +1,14 @@
-PizzaPY 23: MyPY
+# PizzaPY 23: MyPY
 
 Murat presents static type checking for Python, using [MyPy](http://mypy-lang.org/) at [PizzaPY 23](https://www.meetup.com/PizzaPy-PH/events/235261664/).
 
-Have a look at [presentation.org](./presentation.org) for the presentation notes.
+## What's here?
+
+* Have a look at [presentation.org](./presentation.org) for the presentation notes.
+* There's a bunch of demo files that show particular features of MyPy. See notes below how to try them out quickly.
+* The docker image is available at [Docker Hub](https://hub.docker.com/r/cebucodecamp/pizzapy23-mypy/)
+
+## Get started with the demo files
 
 To play around with the examples in this repository, follow these steps:
 
