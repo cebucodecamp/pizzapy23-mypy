@@ -4,7 +4,7 @@ Murat presents static type checking for Python, using [MyPy](http://mypy-lang.or
 
 ## What's here?
 
-* Have a look at [presentation.org](./presentation.org) for the presentation notes.
+* Have a look at [presentation.org](./presentation.org) for the presentation notes. It's an [Org-mode file](http://orgmode.org/), you'll need Emacs or a viewer to enjoy it fully.
 * There's a bunch of demo files that show particular features of MyPy. See notes below how to try them out quickly.
 * The docker image is available at [Docker Hub](https://hub.docker.com/r/cebucodecamp/pizzapy23-mypy/)
 
@@ -32,3 +32,7 @@ Then check one of the demo files. You should immediately get the error:
 Then look at the demo files, modify them and run the check again to see the difference.
 
 Happy coding! :)
+
+## License
+
+All materials here, code and other content, are published under a [CC0 free license](https://creativecommons.org/publicdomain/zero/1.0/).
